@@ -31,9 +31,41 @@ public class StreamSortingExample {
 		   
 		  //sorting employeee by salary in ascending order
 		   
-		
+		      List <Employee> employees=new ArrayList<Employee>();
+		      employees.add(new Employee(1,"faiza",36,2000));
+		      employees.add(new Employee(2,"yamina",34,2400));
+		      employees.add(new Employee(3,"carlos",26,1900));
+		      employees.add(new Employee(4,"tania",36,2600));
 		   
-		
+		      List <Employee> employeesSortedList=employees.stream().sorted(new Comparator<Employee>() {
+
+				@Override
+				public int compare(Employee o1, Employee o2) {
+					
+					return (int) (o1.getSalary()- o2.getSalary());
+				}
+		    	  
+		      }).collect(Collectors.toList());
+		      System.out.println(employeesSortedList);
+		      
+		      
+		      //sorted by descending salary
+		      List <Employee> employeesSortedDescList=employees.stream().sorted(new Comparator<Employee>() {
+
+					@Override
+					public int compare(Employee o1, Employee o2) {
+						
+						return (int) (o2.getSalary()- o1.getSalary());
+					}
+			    	  
+			      }).collect(Collectors.toList());
+			      System.out.println(employeesSortedDescList);
+			      
+			      
+			      List <Employee> employeesSortedList3=employees.stream().
+			    		  sorted(Comparator.comparingLong(Employee::getSalary)).collect(Collectors.toList());
+			      System.out.println("compact methode"+employeesSortedList3);
+	}
 }
 
 
@@ -110,4 +142,4 @@ class Employee{
 	
 	
 
-}}
+}

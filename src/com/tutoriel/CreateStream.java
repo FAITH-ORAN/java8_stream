@@ -16,9 +16,9 @@ public class CreateStream {
 			stream.forEach(System.out::println);
 			
 		//create a stream from list
-			List<String> list=Arrays.asList("JAVA","J2EE","SPRING");
-			Stream<String> stream2=list.stream();
-			stream2.forEach(System.out::println);
+			List<String> list=Arrays.asList("JAVA","J2EE","SPRING");//my liste
+			Stream<String> stream2=list.stream();//convert list(ordonnée) in stream
+			stream2.forEach(System.out::println);//display my stream with forEach
 		
 	  //create a stream from set liste non ordonnée
 			Set<String> set =new HashSet<>(list);
